@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
 
     # - name: Setup Noodl CLI
     #   uses: noodlapp/actions-setup-cli@latest
@@ -30,6 +32,8 @@ jobs:
 
     - run: npm install -g @noodl/noodl-cli@2.6.9-beta.220725923017
 
+    - run: git --version
+    
     - name: Clone Noodl project
       run: noodl-cli project clone "${{ inputs.project_id }}" "./noodl-app"
       env:
