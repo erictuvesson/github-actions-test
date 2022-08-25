@@ -32,11 +32,8 @@ jobs:
 
     - run: git --version
 
-    - run: |
-      node -e 'child_process.spawnSync("npm", ["--version"], { stdio: "inherit" });'
-        
-    - run: |
-      node -e 'child_process.spawnSync("git", ["--version"], { stdio: "inherit" });'
+    - run: node -e 'child_process.spawnSync("npm", ["--version"], { stdio: "inherit" });'
+    - run: node -e 'child_process.spawnSync("git", ["--version"], { stdio: "inherit" });'
         
     - name: Clone Noodl project
       run: noodl-cli project clone "${{ inputs.project_id }}" "./noodl-app"
