@@ -30,7 +30,7 @@ jobs:
       with:
         node-version: 16
 
-    - run: npm install -g @noodl/noodl-cli@2.6.9-beta.220725923017
+    - run: npm install -g @noodl/noodl-cli@2.6.9-beta.220725923019
 
     - run: git --version
     
@@ -41,6 +41,7 @@ jobs:
       env:
         NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
         NOODL_PASSWORD: ${{ secrets.NOODL_PASSWORD }}
+        NOODL_SHELL: /usr/bin/bash
         
     - name: Build Noodl app
       run: noodl-cli build ./noodl-app --outFile ./noodl-app-build.zip
