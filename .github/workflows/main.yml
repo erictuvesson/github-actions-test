@@ -23,8 +23,8 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-          - os: macos-latest
-          - os: windows-latest
+          # - os: macos-latest
+          # - os: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -40,6 +40,7 @@ jobs:
     - run: npm install -g @noodl/noodl-cli@2.6.9-beta.220725923019
 
     - run: git --version
+    - run: /bin/sh -c ls
 
     #- run: |
     #  node --version
