@@ -3,22 +3,40 @@ name: Main
 on:
   workflow_dispatch:
     inputs:
-      text:
-        description: 'Test.'
-        default: 'Hello'
-        required: false
+      workspace_id:
+        description: 'Noodl workspace id'
+        required: true
         type: string
-  release:
-    types: [published]
+      project_id:
+        description: 'Noodl project id'
+        required: true
+        type: string
 
 jobs:
-  main:
-    uses: erictuvesson/github-actions-test/.github/workflows/other-2.yml@main
-    with:
-      text: "Hello from Main #2"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Noodl CLI
+      uses: noodlapp/actions-setup-cli@latest
 
-  other-3:
-    uses: erictuvesson/github-actions-test/.github/workflows/other-1.yml@main
-    needs: [main]
-    with:
-      text: "Hello from Main #1"
+    - name: Clone Noodl project
+      run: |
+        noodl-cli project clone \
+          --workspace-id ${{ inputs.workspace_id }} \
+          --project-id ${{ inputs.project_id }} \
+          --path ./noodl-app
+      env:
+        NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
+        NOODL_PASSWORD: ${{ secrets.NOODL_USERNAME }}
+        
+    - name: Build Noodl app
+      run: noodl-cli build --projectDir ./noodl-app --outFile ./noodl-app-build.zip
+      env:
+        NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
+        NOODL_PASSWORD: ${{ secrets.NOODL_USERNAME }}
+    
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: noodl-app-build
+        path: ./noodl-app-build.zip
