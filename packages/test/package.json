@@ -1,0 +1,9 @@
+{
+  "name": "test",
+  "scripts": {
+    "test": "npx lerna bootstrap"
+  },
+  "devDependencies": {
+    "react": "^18.2.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "testing",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npx lerna bootstrap"
+  },
+  "devDependencies": {
+    "lerna": "^5.4.3",
+    "fs-extra": "^10.0.0",
+    "ts-node": "^10.9.1"
+  },
+  "engines": {
+    "npm": ">=6.0.0",
+    "node": ">=16.0.0"
+  }
+}
