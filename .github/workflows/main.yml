@@ -14,10 +14,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - uses: ./.github/workflows/other-1.yml
+    - uses: erictuvesson/github-actions-test/.github/workflows/other-1.yml@main
       with:
         text: "Hello from Main #1"
 
-    - uses: ./.github/workflows/other-2.yml
+    - uses: ./.github/workflows/other-3
       with:
-        text: "Hello from Main #2"
+        text: "Hello from Main #3"
