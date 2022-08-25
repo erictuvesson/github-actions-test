@@ -21,9 +21,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - platform: ubuntu-latest
-          - platform: darwin-latest
-          - platform: win32-latest
+          - os: ubuntu-latest
+          - os: darwin-latest
+          - os: win32-latest
 
     steps:
     - uses: actions/checkout@v2
