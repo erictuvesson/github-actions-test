@@ -13,13 +13,11 @@ on:
 
 jobs:
   main:
-    runs-on: ubuntu-latest
     uses: erictuvesson/github-actions-test/.github/workflows/other-2.yml@main
     with:
       text: "Hello from Main #2"
 
   other-3:
-    runs-on: ubuntu-latest
     uses: erictuvesson/github-actions-test/.github/workflows/other-1.yml@main
     needs: [main]
     with:
