@@ -31,7 +31,7 @@ jobs:
     - run: npm install -g @noodl/noodl-cli@2.6.9-beta.220725923019
 
     - run: git --version
-    
+
     - run: |
       node -e 'child_process.spawnSync("npm", ["--version"], { stdio: "inherit" });'
         
