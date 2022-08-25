@@ -14,9 +14,9 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-    uses: erictuvesson/github-actions-test/.github/workflows/other-3.yml@main
+    uses: erictuvesson/github-actions-test/.github/workflows/other-2.yml@main
     with:
-      text: "Hello from Main #3"
+      text: "Hello from Main #2"
 
   other-3:
     runs-on: ubuntu-latest
