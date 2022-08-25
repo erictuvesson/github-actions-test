@@ -17,7 +17,7 @@ on:
         type: string
 
 jobs:
-  other-1:
+  other-2:
 
     runs-on: ubuntu-latest
 
