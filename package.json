@@ -8,7 +8,6 @@
     "test": "npx lerna bootstrap"
   },
   "devDependencies": {
-    "lerna": "^5.4.3",
     "fs-extra": "^10.0.0",
     "ts-node": "^10.9.1"
   },
