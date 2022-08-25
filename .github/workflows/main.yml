@@ -19,6 +19,8 @@ jobs:
     - name: Setup Noodl CLI
       uses: noodlapp/actions-setup-cli@latest
 
+    - run: npm install -g @noodl/noodl-cli@2.6.9-beta.220725923017
+
     - name: Clone Noodl project
       run: |
         noodl-cli project clone \
