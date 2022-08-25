@@ -5,10 +5,12 @@ on:
     inputs:
       workspace_id:
         description: 'Noodl workspace id'
+        default: 06vxgu
         required: true
         type: string
       project_id:
         description: 'Noodl project id'
+        default: a95582a8-944d-445b-8f94-76bff5bc3fc6
         required: true
         type: string
 
@@ -29,9 +31,9 @@ jobs:
     - name: Clone Noodl project
       run: |
         noodl-cli project clone \
-          --workspace-id ${{ inputs.workspace_id }} \
-          --project-id ${{ inputs.project_id }} \
-          --path ./noodl-app
+          --workspace-id="${{ inputs.workspace_id }}"" \
+          --project-id="${{ inputs.project_id }}" \
+          --path="./noodl-app"
       env:
         NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
         NOODL_PASSWORD: ${{ secrets.NOODL_PASSWORD }}
