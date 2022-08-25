@@ -29,13 +29,13 @@ jobs:
           --path ./noodl-app
       env:
         NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
-        NOODL_PASSWORD: ${{ secrets.NOODL_USERNAME }}
+        NOODL_PASSWORD: ${{ secrets.NOODL_PASSWORD }}
         
     - name: Build Noodl app
       run: noodl-cli build --projectDir ./noodl-app --outFile ./noodl-app-build.zip
       env:
         NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
-        NOODL_PASSWORD: ${{ secrets.NOODL_USERNAME }}
+        NOODL_PASSWORD: ${{ secrets.NOODL_PASSWORD }}
     
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
