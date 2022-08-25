@@ -39,13 +39,13 @@ jobs:
       env:
         NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
         NOODL_PASSWORD: ${{ secrets.NOODL_PASSWORD }}
-        NOODL_SHELL: /usr/bin/bash
         
-    - name: Clone Noodl project test
-      run: npx @noodl/noodl-cli@2.6.9-beta.220725923019 project clone "${{ inputs.project_id }}" "./noodl-app"
+    - name: Clone Noodl project with shell
+      run: noodl-cli project clone "${{ inputs.project_id }}" "./noodl-app"
       env:
         NOODL_USERNAME: ${{ secrets.NOODL_USERNAME }}
         NOODL_PASSWORD: ${{ secrets.NOODL_PASSWORD }}
+        NOODL_SHELL: /usr/bin/bash
         
     - name: Build Noodl app
       run: noodl-cli build ./noodl-app --outFile ./noodl-app-build.zip
