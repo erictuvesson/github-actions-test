@@ -19,8 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
 
     # - name: Setup Noodl CLI
     #   uses: noodlapp/actions-setup-cli@latest
@@ -34,6 +32,12 @@ jobs:
 
     - run: git --version
     
+    - run: |
+      node -e 'child_process.spawnSync("npm", ["--version"], { stdio: "inherit" });'
+        
+    - run: |
+      node -e 'child_process.spawnSync("git", ["--version"], { stdio: "inherit" });'
+        
     - name: Clone Noodl project
       run: noodl-cli project clone "${{ inputs.project_id }}" "./noodl-app"
       env:
