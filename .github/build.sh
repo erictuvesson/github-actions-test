@@ -2,7 +2,7 @@
 
 echo
 echo "> Installing Noodl CLI..."
-npm install -g @noodl/noodl-cli@2.7.1-beta.220726923055
+npm install -g @noodl/noodl-cli@beta
 echo "> Done"
 
 echo
